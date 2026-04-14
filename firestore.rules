@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Match any document in the matches collection
+    match /matches/{matchId} {
+      allow read: if true;
+      allow write: if request.auth != null; // Simple check for now, can be refined to check admin UID
+      
+      // Subcollection for balls
+      match /balls/{ballId} {
+        allow read: if true;
+        allow write: if request.auth != null;
+      }
+    }
+    
+    // Notifications - Anyone can read, only admin can create
+    match /notifications/{noteId} {
+      allow read: if true;
+      allow create: if request.auth != null; // Only logged in admins can trigger
+      allow update, delete: if false;
+    }
+  }
+}

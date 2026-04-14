@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-blue: #00f3ff;
+  --color-neon-pink: #ff00ea;
+  --color-dark-bg: #0a0a0f;
+  --color-dark-card: #14141f;
+  --color-dark-border: #2a2a3f;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-white font-sans antialiased;
+  }
+}
+
+.glass {
+  background: rgba(20, 20, 31, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
