@@ -71,7 +71,7 @@ function App() {
 
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/CricNexa">
         <div className="min-h-screen bg-dark-bg text-white font-sans antialiased relative">
           {/* Background Image Layer */}
           <div 
