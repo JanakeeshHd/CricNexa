@@ -45,7 +45,7 @@ function App() {
             if (Notification.permission === 'granted') {
               new Notification(data.title, {
                 body: data.body,
-                icon: '/logo.png'
+                icon: './logo.png'
               });
             }
           }
@@ -58,7 +58,7 @@ function App() {
       if (Notification.permission === 'granted') {
         new Notification(payload.notification.title, {
           body: payload.notification.body,
-          icon: '/logo.png'
+          icon: './logo.png'
         });
       }
     });
@@ -76,7 +76,7 @@ function App() {
           {/* Background Image Layer */}
           <div 
             className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
-            style={{ backgroundImage: "url('/dashboard.jpg')" }}
+            style={{ backgroundImage: "url('./dashboard.jpg')" }}
           />
           {/* Content Layer */}
           <div className="relative z-10">

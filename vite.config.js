@@ -19,20 +19,20 @@ export default defineConfig({
         theme_color: '#0A0F1C',
         background_color: '#0A0F1C',
         display: 'standalone',
-        start_url: '/',
+        start_url: '/CricNexa/',
         shortcuts: [
           {
             name: 'View Live Match',
             short_name: 'Live',
             description: 'Jump straight into the current live match',
-            url: '/',
+            url: '/CricNexa/',
             icons: [{ src: 'pwa-192x192.png', sizes: '192x192' }]
           },
           {
             name: 'Open Dashboard',
             short_name: 'Dashboard',
             description: 'Browse all matches',
-            url: '/',
+            url: '/CricNexa/',
             icons: [{ src: 'pwa-192x192.png', sizes: '192x192' }]
           }
         ],
