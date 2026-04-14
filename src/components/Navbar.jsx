@@ -19,7 +19,7 @@ export const Navbar = () => {
     <nav className="glass sticky top-0 z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 text-2xl font-bold">
-          <img src="/logo.png" alt="Logo" className="h-10 w-10 rounded-full object-cover border-2 border-neon-blue" />
+          <img src="./logo.png" alt="Logo" className="h-10 w-10 rounded-full object-cover border-2 border-neon-blue" />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-pink">
             CricNexa
           </span>
