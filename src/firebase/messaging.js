@@ -16,12 +16,15 @@ export const requestNotificationPermission = async () => {
   try {
     const permission = await Notification.requestPermission();
     if (permission === 'granted') {
-      // Typically you'd have a VAPID key here from Firebase Console > Project Settings > Cloud Messaging > Web Push certs
+      // Manually register the service worker from the subfolder for GitHub Pages
+      const swUrl = `${import.meta.env.BASE_URL}firebase-messaging-sw.js`;
+      const registration = await navigator.serviceWorker.register(swUrl);
+      
       const token = await getToken(messaging, {
-        vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY || 'BHs_wnOhh7d9_o4-jXflUScmwj9-U8r9IdLf5LuDselrw07mMvkktoKqwQOyewzkPtbec86K1WYqZ_6C3MdFPAI'
+        vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY || 'BHs_wnOhh7d9_o4-jXflUScmwj9-U8r9IdLf5LuDselrw07mMvkktoKqwQOyewzkPtbec86K1WYqZ_6C3MdFPAI',
+        serviceWorkerRegistration: registration
       });
       console.log('FCM Token generated:', token);
-      // You would normally send this token to your backend/firestore to save it against the user
       return token;
     } else {
       console.log('Notification permission denied');
