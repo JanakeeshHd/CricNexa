@@ -17,8 +17,13 @@ export const requestNotificationPermission = async () => {
     const permission = await Notification.requestPermission();
     if (permission === 'granted') {
       // Manually register the service worker from the subfolder for GitHub Pages
-      const swUrl = `${import.meta.env.BASE_URL}firebase-messaging-sw.js`;
-      const registration = await navigator.serviceWorker.register(swUrl);
+      // We use a relative path instead of BASE_URL for simplicity and to avoid domain root issues
+      const swUrl = './firebase-messaging-sw.js';
+      console.log('Registering service worker from:', swUrl);
+      const registration = await navigator.serviceWorker.register(swUrl, {
+        scope: './' // Restrict scope to the project subfolder
+      });
+      console.log('Service worker registered successfully:', registration);
       
       const token = await getToken(messaging, {
         vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY || 'BHs_wnOhh7d9_o4-jXflUScmwj9-U8r9IdLf5LuDselrw07mMvkktoKqwQOyewzkPtbec86K1WYqZ_6C3MdFPAI',
